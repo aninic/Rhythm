@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style> 
+div.bar {
+    width: 50px;
+    height: var(--height);
+    background: red;
+    -webkit-transition: height 2s; /* Safari */
+    transition: height 2s;
+    display: inline-block;
+}
+.box{
+	position: absolute;
+	background-color:blue;
+	height: 1000px;
+}
+
+.bar{
+	-webkit-transition-timing-function: ease;
+	transition-timing-function: ease;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="box">
+ <div class="bar" id="red"></div>
+ <div class="bar" id="red"></div>
+ <div class="bar" id="red"></div>
+ <div class="bar" id="red"></div>
+ <div class="bar" id="red"></div>
+ <div class="bar" id="red"></div>
+ <div class="bar" id="red"></div>
+</div>
+
+
+</body>
+
+<script>
+
+var bar = document.getElementsByClassName("bar");
+
+function setProperty(duration) {
+	for( i = 0; i < bar.length+1; i++){
+  		bar[i].style.setProperty('--height', Math.random() * 700 + 'px');
+  	}
+}
+setInterval(setProperty, 100);
+
+</script>
+</html>
