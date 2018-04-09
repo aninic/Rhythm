@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style> 
-div.bar {
-    width: 50px;
-    height: var(--height);
-    background: red;
-    -webkit-transition: height 2s; /* Safari */
-    transition: height 2s;
-    display: inline-block;
-}
 .box{
-	position: absolute;
-	background-color:blue;
-	height: 1000px;
+  position: fixed;
+  /*background-color:blue;*/
+  margin-top: 700px;
+  margin-left: 50%;
+  /*height: 1000px;*/
 }
 
 .bar{
-	-webkit-transition-timing-function: ease;
-	transition-timing-function: ease;
+    margin-top:200px;
+    margin-left: var(--margin-left);
+    width:100px;
+    height: var(--height);
+    /*background:black;*/
+    float:right;
+    position:absolute;
+    bottom: 10px;
+    background: linear-gradient(yellow, red);
+  -webkit-transition: height 2s;
+    /*transition: height 0.5s ease-in-out;*/
 }
-
 
 </style>
 </head>
 <body>
-
 <div class="box">
- <div class="bar" id="red"></div>
- <div class="bar" id="red"></div>
- <div class="bar" id="red"></div>
- <div class="bar" id="red"></div>
- <div class="bar" id="red"></div>
- <div class="bar" id="red"></div>
- <div class="bar" id="red"></div>
+   <div class='bar'> </div>
+   <div class='bar'> </div>
+   <div class='bar'> </div>
+   <div class='bar'> </div>
+   <div class='bar'> </div>
 </div>
 
 
@@ -43,13 +42,17 @@ div.bar {
 <script>
 
 var bar = document.getElementsByClassName("bar");
-
+var left = 100;
 function setProperty(duration) {
-	for( i = 0; i < bar.length+1; i++){
-  		bar[i].style.setProperty('--height', Math.random() * 700 + 'px');
-  	}
+  for( i = 0; i < bar.length+1; i++){
+      bar[i].style.setProperty('--height', Math.pow(2, 10*Math.random()) + 'px');
+      bar[i].style.setProperty('--margin-left', left * i + 'px');
+      //potentially set height
+    }
 }
-setInterval(setProperty, 100);
+// Allow user select level of movement
+// Allow user set color
+setInterval(setProperty, 600);
 
 </script>
 </html>
