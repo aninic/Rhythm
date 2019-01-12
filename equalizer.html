@@ -2,57 +2,67 @@
 <html>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<style> 
-.box{
-  position: fixed;
-  /*background-color:blue;*/
-  margin-top: 700px;
-  margin-left: 50%;
-  /*height: 1000px;*/
-}
+  <style> 
+    body{
+      background: black;
+    }
 
-.bar{
-    margin-top:200px;
-    margin-left: var(--margin-left);
-    width:100px;
-    height: var(--height);
-    /*background:black;*/
-    float:right;
-    position:absolute;
-    bottom: 10px;
-    background: linear-gradient(yellow, red);
-  -webkit-transition: height 2s;
-    /*transition: height 0.5s ease-in-out;*/
-}
+    /*****Equalizer*******/
+    #box{
+      margin-top: 700px;
+/*      border-style: solid;
+      border-width: 1px;
+      border-color:red;*/
+      height:100px;
+   }
 
-</style>
+    .bar{
+    	width: 25px;
+    	background: linear-gradient(yellow, red);
+    	height: var(--height);
+    	-webkit-transition: height 2s;
+		transform: rotatex(180deg);
+		transform-origin: top;
+    }
+
+    span:first-of-type{
+     	margin-right: 20px;
+    	position: relative;
+    	bottom: 10px;
+    	float:right;
+    }
+
+    span + span{
+    	margin-right: 20px;
+    	position: relative;
+    	bottom: 10px;
+    	float:right;
+    }
+
+  </style>
 </head>
-<body>
-<div class="box">
-   <div class='bar'> </div>
-   <div class='bar'> </div>
-   <div class='bar'> </div>
-   <div class='bar'> </div>
-   <div class='bar'> </div>
-</div>
 
+<body>
+  <div id="box">
+     <span class='bar'> </span>
+     <span class='bar'> </span>
+     <span class='bar'> </span>
+     <span class='bar'> </span>
+     <span class='bar'> </span>
+  </div>
 
 </body>
 
 <script>
+  var bar = document.getElementsByClassName("bar");
+  var height = document.body.clientHeight;
 
-var bar = document.getElementsByClassName("bar");
-var left = 100;
-function setProperty(duration) {
-  for( i = 0; i < bar.length+1; i++){
-      bar[i].style.setProperty('--height', Math.pow(2, 10*Math.random()) + 'px');
-      bar[i].style.setProperty('--margin-left', left * i + 'px');
-      //potentially set height
-    }
-}
-// Allow user select level of movement
-// Allow user set color
-setInterval(setProperty, 600);
+  function setBarMovement(duration) {
+    for( i = 0; i < bar.length; i++){
+        bar[i].style.setProperty('--height', Math.pow(2, 10 * Math.random()) + 'px');
+      }
+  }
+  setInterval(setBarMovement, 600);
 
 </script>
 </html>
