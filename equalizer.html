@@ -9,14 +9,24 @@
 
     /*****Equalizer*******/
     #box{
-      margin-top: 700px;
+      /*margin-top: 700px;*/
 /*      border-style: solid;
       border-width: 1px;
       border-color:red;*/
-      height:100px;
+/*      height:100px;
       width: 100%;
       position: absolute;
       margin-left: calc(-50% + 112px);
+      margin-top: calc(50%);
+      overflow:visible !important;*/
+
+          position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    /*background: gold;*/
+    padding: 2rem;
+    height: 0px;
+    margin-top: 150px;
    }
 
     .bar{
@@ -28,13 +38,13 @@
 		transform-origin: top;
     }
 
+    /*****Position the bars horizontally*****/
     span:first-of-type{
      	margin-right: 20px;
     	position: relative;
     	bottom: 10px;
     	float:right;
     }
-
     span + span{
     	margin-right: 20px;
     	position: relative;
@@ -46,6 +56,7 @@
 </head>
 
 <body>
+	<!-- <div class="outer"> -->
   <div id="box">
      <span class='bar'> </span>
      <span class='bar'> </span>
@@ -53,7 +64,7 @@
      <span class='bar'> </span>
      <span class='bar'> </span>
   </div>
-
+<!-- </div> -->
 </body>
 
 <script>
